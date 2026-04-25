@@ -3,6 +3,10 @@
 AWS infrastructure for the ecommerce platform.
 Provisions a production-grade EKS cluster with networking and security.
 
+## Architecture Diagram
+
+![Architecture](architecture/architecture-diagram.svg)
+
 ## Architecture
 AWS Account (af-south-1)
 ├── VPC

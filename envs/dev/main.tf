@@ -36,3 +36,22 @@ module "eks" {
 
   depends_on = [module.networking, module.security]
 }
+
+# ---------------------------------------------------------------------------------------------------------------------
+# MODULE 3: DATABASE
+# ---------------------------------------------------------------------------------------------------------------------
+
+module "database" {
+  source = "../../modules/database"
+
+  project_name                  = var.project_name
+  environment                   = var.environment
+  aws_region                    = var.aws_region
+  database_subnet_ids           = module.networking.database_subnet_ids
+  rds_security_group_id         = module.security.rds_security_group_id
+  rds_proxy_security_group_id   = module.security.rds_proxy_security_group_id
+  elasticache_security_group_id = module.security.elasticache_security_group_id
+
+  depends_on = [module.networking, module.security]
+}
+

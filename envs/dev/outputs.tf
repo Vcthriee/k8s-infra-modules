@@ -50,3 +50,18 @@ output "kubeconfig_command" {
   description = "Command to configure kubectl"
   value       = "aws eks update-kubeconfig --region ${var.aws_region} --name ${module.eks.cluster_name}"
 }
+# Database Outputs
+output "rds_endpoint" {
+  description = "RDS PostgreSQL endpoint"
+  value       = module.database.rds_endpoint
+}
+
+output "rds_proxy_endpoint" {
+  description = "RDS Proxy endpoint"
+  value       = module.database.rds_proxy_endpoint
+}
+
+output "redis_endpoint" {
+  description = "ElastiCache Redis endpoint"
+  value       = module.database.redis_endpoint
+}
